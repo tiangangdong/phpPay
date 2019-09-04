@@ -2,7 +2,7 @@
     "name": "tiangang/phppay",
     "description": "php pay",
     "type": "library",
-    "license": "MIt",
+    "license": "MIT",
     "authors": [
         {
             "name": "tiangang",
