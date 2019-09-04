@@ -8,11 +8,10 @@ class Pay
     private $appid ; //应用id
     private $mch_id ; //商铺id
     private $privatekey ;//秘钥
-    private $notify_url ; //支付回调地址
 
-    public function setBasicConfiguration($appi,$mch_id,$privatekey)
+    public function setBasicConfiguration($appid,$mch_id,$privatekey)
     {
-        $this->appid = $appi;
+        $this->appid = $appid;
         $this->mch_id = $mch_id;
         $this->privatekey = $privatekey;
     }
@@ -23,9 +22,10 @@ class Pay
      * @param string $body  简介
      * @param int $total    金额 单位分
      * @param string $out_trade_no 订单号
+     * @param string $notify_url   支付回调地址
      * @return void
      */
-    public function APPWxPay($body, $total, $out_trade_no)
+    public function APPWxPay($body, $total, $out_trade_no,$notify_url)
     
     {
         $nonce_str = $this->getNonceStr();
@@ -34,7 +34,7 @@ class Pay
         $data['device_info'] = 'WEB'; //默认 WEB
         $data['mch_id'] = $this->mch_id; //商户号
         $data['nonce_str'] = $this->getNonceStr(); //随机字符串
-        $data['notify_url'] =$this->notify_url ; //回调地址,用户接收支付后的通知,必须为能直接访问的网址,不能跟参数
+        $data['notify_url'] =$notify_url ; //回调地址,用户接收支付后的通知,必须为能直接访问的网址,不能跟参数
         $data['out_trade_no'] = $out_trade_no; //商户订单号,不能重复
         $data['spbill_create_ip'] = '123.12.12.123'; //ip地址 （随便填写）
         $data['total_fee'] = $total ; //金额
