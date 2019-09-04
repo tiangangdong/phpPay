@@ -1,0 +1,13 @@
+{
+    "name": "vendor/phppay",
+    "description": "php pay",
+    "type": "project",
+    "license": "MIt",
+    "authors": [
+        {
+            "name": "tiangang",
+            "email": "tiangangdong@163.com"
+        }
+    ],
+    "require": {}
+}
