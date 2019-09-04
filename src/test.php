@@ -6,5 +6,4 @@ class Pay{
     {
         return json('is success!');
     }
-
 }
